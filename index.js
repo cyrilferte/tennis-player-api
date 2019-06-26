@@ -1,11 +1,11 @@
 const express = require('express');
-const players = require('./resources/players');
+const players = require('./resources/tennis_players');
 
 const app = express();
 
 
 app.get('/players', (req, res) => {
-    res.json();
+    res.json(players.index());
 });
 
 

@@ -14,6 +14,20 @@ class Players {
         });
         return  players
     }
+    static getPlayer(id){
+        let selected_player;
+        for (const player of db.players) {
+            if (player.id === Number(id)) {
+                selected_player = player;
+            }
+        }
+
+        if (selected_player){
+            return selected_player;
+        } else {
+            return {"player": 'not found' }
+        }
+    }
 
 
 }

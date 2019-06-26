@@ -1,0 +1,22 @@
+{
+  "name": "tennis-player-api",
+  "version": "1.0.0",
+  "description": "tennis player api test",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrilferte/tennis-player-api.git"
+  },
+  "author": "cyril ferte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyrilferte/tennis-player-api/issues"
+  },
+  "homepage": "https://github.com/cyrilferte/tennis-player-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

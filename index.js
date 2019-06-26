@@ -1,11 +1,11 @@
 const express = require('express');
-
+const players = require('./resources/players');
 
 const app = express();
 
 
 app.get('/players', (req, res) => {
-    res.json({"message": "list players"});
+    res.json();
 });
 
 

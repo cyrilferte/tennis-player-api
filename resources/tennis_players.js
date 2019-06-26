@@ -1,4 +1,6 @@
 let db = require('./db.json');
+const fs = require('fs');
+
 
 class Players {
     constructor() {}
@@ -14,7 +16,7 @@ class Players {
         });
         return  players
     }
-    static getPlayer(id){
+    static getPlayer(id) {
         let selected_player;
         for (const player of db.players) {
             if (player.id === Number(id)) {
@@ -25,9 +27,30 @@ class Players {
         if (selected_player){
             return selected_player;
         } else {
-            return {"player": 'not found' }
+            return null
         }
     }
+
+    static deletePlayer(id) {
+        const player = this.getPlayer(id);
+        if (player){
+            db.players.splice( db.players.indexOf(player), 1 );
+            this.saveDatabase(db.players).then(function(res) {
+                console.log('resp delet')
+               return true
+            });
+
+        }
+    }
+
+    static saveDatabase(db){
+        fs.writeFileSync('./resources/db.json', JSON.stringify(db));
+        let promise = new Promise(function(resolve, reject) {
+            resolve('Success!');
+        });
+        return promise
+    }
+
 
 
 }

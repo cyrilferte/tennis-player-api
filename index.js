@@ -9,10 +9,26 @@ app.get('/players', (req, res) => {
 });
 
 app.get('/players/:id', (req, res) => {
-    console.log(players.getPlayer(req.params.id))
-    res.json(players.getPlayer(req.params.id));
+    const player = players.getPlayer(req.params.id);
+    if (player){
+        res.json(players.getPlayer(req.params.id));
+    }else {
+        res.sendStatus(404)
+    }
+
+});
+
+app.delete('/players/:id', (req, res) => {
+    const player = players.getPlayer(req.params.id);
+    if (player){
+        res.json(players.deletePlayer(req.params.id));
+    } else {
+        res.sendStatus(404)
+    }
+
 });
 
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
+module.exports = app;
